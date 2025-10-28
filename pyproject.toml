@@ -1,0 +1,229 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "customer-churn-ml-pipeline"
+version = "0.1.0"
+description = "End-to-end customer churn analytics and prediction pipeline"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Customer Churn ML Team"}
+]
+keywords = ["machine-learning", "churn-prediction", "customer-analytics", "mlops"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+dependencies = [
+    # Core data science libraries
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+    "scipy>=1.9.0",
+    
+    # Machine learning
+    "scikit-learn>=1.2.0",
+    "xgboost>=1.7.0",
+    "lightgbm>=3.3.0",
+    "imbalanced-learn>=0.10.0",
+    
+    # Model explainability
+    "shap>=0.41.0",
+    "lime>=0.2.0",
+    
+    # Data visualization
+    "matplotlib>=3.6.0",
+    "seaborn>=0.12.0",
+    "plotly>=5.11.0",
+    
+    # Dashboard and web interface
+    "streamlit>=1.25.0",
+    "streamlit-aggrid>=0.3.0",
+    
+    # Data acquisition
+    "kagglehub>=0.1.0",
+    
+    # Customer lifetime value modeling
+    "lifetimes>=0.11.0",
+    
+    # Statistical analysis
+    "statsmodels>=0.13.0",
+    
+    # Data storage and serialization
+    "joblib>=1.2.0",
+    "pickle5>=0.0.11; python_version<'3.8'",
+    "pyarrow>=10.0.0",
+    
+    # Experiment tracking and MLOps
+    "mlflow>=2.0.0",
+    
+    # Configuration and utilities
+    "pydantic>=1.10.0",
+    "python-dotenv>=0.19.0",
+    "tqdm>=4.64.0",
+    
+    # Clustering and dimensionality reduction
+    "umap-learn>=0.5.0",
+    
+    # Time series analysis
+    "ydata-profiling>=4.0.0",
+    
+    # Hyperparameter optimization
+    "optuna>=3.0.0",
+    
+    # Data quality and validation
+    "great-expectations>=0.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Testing
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+    
+    # Code quality
+    "black>=22.0.0",
+    "isort>=5.11.0",
+    "flake8>=5.0.0",
+    "mypy>=0.991",
+    
+    # Documentation
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.2.0",
+    "nbsphinx>=0.8.0",
+    
+    # Jupyter and notebooks
+    "jupyter>=1.0.0",
+    "jupyterlab>=3.5.0",
+    "ipykernel>=6.16.0",
+    "ipywidgets>=8.0.0",
+]
+
+gpu = [
+    # GPU-accelerated libraries
+    "cudf-cu11>=22.12.0",
+    "cuml-cu11>=22.12.0",
+    "xgboost[gpu]>=1.7.0",
+]
+
+production = [
+    # Production deployment
+    "gunicorn>=20.1.0",
+    "uvicorn>=0.20.0",
+    "fastapi>=0.95.0",
+    
+    # Monitoring and logging
+    "prometheus-client>=0.15.0",
+    "structlog>=22.3.0",
+    
+    # Database connectivity
+    "sqlalchemy>=1.4.0",
+    "psycopg2-binary>=2.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/customer-churn-ml-pipeline"
+Documentation = "https://customer-churn-ml-pipeline.readthedocs.io/"
+Repository = "https://github.com/your-org/customer-churn-ml-pipeline.git"
+"Bug Tracker" = "https://github.com/your-org/customer-churn-ml-pipeline/issues"
+
+[project.scripts]
+churn-predict = "src.cli:predict_cli"
+churn-train = "src.cli:train_cli"
+churn-dashboard = "dashboards.app_streamlit:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "dashboards*"]
+exclude = ["tests*", "notebooks*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | data
+  | models
+  | reports
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["src", "dashboards"]
+skip_glob = ["data/*", "models/*", "reports/*"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+exclude = [
+    "data/",
+    "models/",
+    "reports/",
+    "notebooks/",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --cov=src --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "setup.py",
+    "*/venv/*",
+    "*/.venv/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
