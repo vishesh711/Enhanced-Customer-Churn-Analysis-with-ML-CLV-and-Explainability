@@ -1,0 +1,95 @@
+# Core Data Science Libraries
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Statistical Analysis
+statsmodels>=0.14.0
+
+# Data Loading and APIs
+kagglehub>=0.2.0
+requests>=2.31.0
+
+# Jupyter Notebook Support
+jupyter>=1.0.0
+ipykernel>=6.25.0
+nbformat>=5.9.0
+
+# Development and Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Data Validation and Quality
+great-expectations>=0.17.0
+
+# Configuration and Environment
+python-dotenv>=1.0.0
+pyyaml>=6.0
+
+# Progress Bars and Utilities
+tqdm>=4.65.0
+
+# Memory Profiling (optional)
+memory-profiler>=0.61.0
+
+# Advanced ML Libraries (for future tasks)
+xgboost>=1.7.0
+lightgbm>=4.0.0
+catboost>=1.2.0
+
+# Model Interpretation
+shap>=0.42.0
+lime>=0.2.0
+
+# Hyperparameter Optimization
+optuna>=3.3.0
+
+# Model Persistence
+joblib>=1.3.0
+
+# Time Series (for CLV calculations)
+pandas-datareader>=0.10.0
+
+# Web Dashboard (for future Streamlit dashboard)
+streamlit>=1.25.0
+plotly>=5.15.0
+
+# Database Connectivity (optional)
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+
+# Cloud Storage (optional)
+boto3>=1.28.0
+google-cloud-storage>=2.10.0
+
+# Logging and Monitoring
+loguru>=0.7.0
+
+# Data Profiling
+ydata-profiling>=4.5.0
+
+# Feature Engineering
+feature-engine>=1.6.0
+category-encoders>=2.6.0
+
+# Model Validation
+evidently>=0.4.0
+
+# Documentation
+sphinx>=7.1.0
+sphinx-rtd-theme>=1.3.0
+
+# Code Quality
+black>=23.7.0
+flake8>=6.0.0
+isort>=5.12.0
+mypy>=1.5.0
+
+# Environment Management (conda-env not needed for pip installs)

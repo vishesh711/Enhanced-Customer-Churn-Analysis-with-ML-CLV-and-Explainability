@@ -1,0 +1,93 @@
+# Python 3.13 Compatible Requirements for Customer Churn ML Pipeline
+
+# Core Data Science Libraries
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Statistical Analysis
+statsmodels>=0.14.0
+
+# Data Loading and APIs
+kagglehub>=0.2.0
+requests>=2.31.0
+
+# Jupyter Notebook Support
+jupyter>=1.0.0
+ipykernel>=6.25.0
+nbformat>=5.9.0
+
+# Development and Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Configuration and Environment
+python-dotenv>=1.0.0
+pyyaml>=6.0
+
+# Progress Bars and Utilities
+tqdm>=4.65.0
+
+# Memory Profiling (optional)
+memory-profiler>=0.61.0
+
+# Advanced ML Libraries (for future tasks)
+xgboost>=1.7.0
+lightgbm>=4.0.0
+# catboost>=1.2.0  # May have compatibility issues with Python 3.13
+
+# Model Interpretation
+shap>=0.42.0
+lime>=0.2.0
+
+# Hyperparameter Optimization
+optuna>=3.3.0
+
+# Model Persistence
+joblib>=1.3.0
+# pickle5 not needed for Python 3.8+
+
+# Time Series (for CLV calculations)
+# pandas-datareader>=0.10.0  # May have compatibility issues
+
+# Web Dashboard (for future Streamlit dashboard)
+streamlit>=1.25.0
+plotly>=5.15.0
+
+# Database Connectivity (optional)
+sqlalchemy>=2.0.0
+# psycopg2-binary>=2.9.0  # May have compatibility issues
+
+# Cloud Storage (optional)
+# boto3>=1.28.0  # May have compatibility issues
+# google-cloud-storage>=2.10.0  # May have compatibility issues
+
+# Logging and Monitoring
+# loguru>=0.7.0  # May have compatibility issues
+
+# Data Profiling
+# ydata-profiling>=4.5.0  # May have compatibility issues
+
+# Feature Engineering
+# feature-engine>=1.6.0  # May have compatibility issues
+# category-encoders>=2.6.0  # May have compatibility issues
+
+# Model Validation
+# evidently>=0.4.0  # May have compatibility issues
+
+# Documentation
+# sphinx>=7.1.0  # May have compatibility issues
+# sphinx-rtd-theme>=1.3.0  # May have compatibility issues
+
+# Code Quality
+black>=23.7.0
+# flake8>=6.0.0  # May have compatibility issues
+# isort>=5.12.0  # May have compatibility issues
+# mypy>=1.5.0  # May have compatibility issues

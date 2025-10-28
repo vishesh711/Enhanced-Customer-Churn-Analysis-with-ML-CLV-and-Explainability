@@ -1,0 +1,6 @@
+# This directory contains Jupyter notebooks for analysis:
+# - 01_eda.ipynb: Exploratory Data Analysis
+# - 02_feature_engineering.ipynb: Feature engineering pipeline
+# - 03_modeling.ipynb: Model training and evaluation
+# - 04_explainability.ipynb: SHAP/LIME analysis
+# - 05_segmentation_clv.ipynb: Customer segmentation and CLV

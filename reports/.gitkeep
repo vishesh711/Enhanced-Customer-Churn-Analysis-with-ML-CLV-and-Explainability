@@ -1,0 +1,4 @@
+# This directory contains generated reports and figures:
+# - figures/: Generated plots and visualizations
+# - tables/: Performance metrics and evaluation tables
+# - final_report.md: Comprehensive results documentation
